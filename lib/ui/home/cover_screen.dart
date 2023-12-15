@@ -12,16 +12,19 @@ class CoverScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameFlowProvider>(builder: (context, value, child) {
-      return value.isGameStarted
-          ? Container()
-          : Container(
-              alignment: const Alignment(0, -0.2),
-              child: Text(
-                "BRICK BREAKER",
-                style: gameFont,
-              ),
-            );
-    });
+    return Consumer<GameFlowProvider>(
+        builder: (context, value, child) => value.isGameStarted
+            ? Container()
+            : Stack(
+                children: [
+                  Container(
+                      alignment: const Alignment(0, -0.2),
+                      child: Text("BRICK BREAKER", style: gameFont)),
+                  Container(
+                      alignment: const Alignment(0, -0.1),
+                      child: Text('Tap to Play',
+                          style: TextStyle(color: Colors.deepPurple[400])))
+                ],
+              ));
   }
 }

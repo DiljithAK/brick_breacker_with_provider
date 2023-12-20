@@ -1,10 +1,10 @@
 import 'package:brick_breacker_with_provider/core/providers/game_flow_provider.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/cover_screen.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/ball.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/brick.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/game_buttons.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/game_over.dart';
-import 'package:brick_breacker_with_provider/ui/home/widget/player.dart';
+import 'package:brick_breacker_with_provider/ui/widget/cover_screen.dart';
+import 'package:brick_breacker_with_provider/ui/widget/ball.dart';
+import 'package:brick_breacker_with_provider/ui/widget/brick.dart';
+import 'package:brick_breacker_with_provider/ui/widget/game_buttons.dart';
+import 'package:brick_breacker_with_provider/ui/widget/game_over.dart';
+import 'package:brick_breacker_with_provider/ui/widget/player.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,13 +1,12 @@
 import 'package:brick_breacker_with_provider/core/providers/game_flow_provider.dart';
-import 'package:brick_breacker_with_provider/ui/home/cover_screen.dart';
+import 'package:brick_breacker_with_provider/ui/home/widget/cover_screen.dart';
 import 'package:brick_breacker_with_provider/ui/home/widget/ball.dart';
 import 'package:brick_breacker_with_provider/ui/home/widget/brick.dart';
+import 'package:brick_breacker_with_provider/ui/home/widget/game_buttons.dart';
 import 'package:brick_breacker_with_provider/ui/home/widget/game_over.dart';
 import 'package:brick_breacker_with_provider/ui/home/widget/player.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'dart:math' as math;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,13 +21,10 @@ class HomeScreen extends StatelessWidget {
           body: Center(
             child: Stack(
               children: [
-                CoverScreen(),
-                GameOver(
-                  isGameOver: value.isGameOver,
-                  playAgain: value.restartGame,
-                ),
-                Ball(),
-                Player(),
+                const CoverScreen(),
+                const GameOver(),
+                const Ball(),
+                const Player(),
                 for (var brick in value.bricks)
                   Brick(
                     brickHeight: GameFlowProvider.brickHeight,
@@ -37,25 +33,7 @@ class HomeScreen extends StatelessWidget {
                     brickY: brick[1],
                     brickBroken: brick[2],
                   ),
-                Container(
-                alignment: const Alignment(0, 1),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Transform.rotate(
-                      angle: 180 * math.pi / 180,
-                      child: IconButton(
-                        onPressed: () => value.moveLeft(),
-                        icon: const Icon(Icons.play_circle_filled, size: 40),
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () => value.moveRight(),
-                      icon: const Icon(Icons.play_circle_filled, size: 40),
-                    ),
-                  ],
-                ),
-              ),
+                const GameButtons(),
               ],
             ),
           ),

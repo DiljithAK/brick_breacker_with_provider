@@ -17,25 +17,38 @@ class HomeScreen extends StatelessWidget {
       return GestureDetector(
         onTap: value.startGame,
         child: Scaffold(
-          backgroundColor: Colors.deepPurple[100],
-          body: Center(
-            child: Stack(
-              children: [
-                const CoverScreen(),
-                const GameOver(),
-                const Ball(),
-                const Player(),
-                for (var brick in value.bricks)
-                  Brick(
-                    brickHeight: GameFlowProvider.brickHeight,
-                    brickWidth: GameFlowProvider.brickWidth,
-                    brickX: brick[0],
-                    brickY: brick[1],
-                    brickBroken: brick[2],
-                  ),
-                const GameButtons(),
-              ],
-            ),
+          // backgroundColor: Colors.deepPurple[100],
+          body: Stack(
+            children: [
+              Opacity(
+                opacity: 0.7,
+                child: Image.asset(
+                  'assets/images/bg_images/red_brick_wall.jpg',
+                  fit: BoxFit.cover, // Adjust the BoxFit property as needed
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+              ),
+              Center(
+                child: Stack(
+                  children: [
+                    const CoverScreen(),
+                    const GameOver(),
+                    const Ball(),
+                    const Player(),
+                    for (var brick in value.bricks)
+                      Brick(
+                        brickHeight: GameFlowProvider.brickHeight,
+                        brickWidth: GameFlowProvider.brickWidth,
+                        brickX: brick[0],
+                        brickY: brick[1],
+                        brickBroken: brick[2],
+                      ),
+                    const GameButtons(),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       );
